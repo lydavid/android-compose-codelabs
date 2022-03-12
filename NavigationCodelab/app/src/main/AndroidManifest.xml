@@ -15,7 +15,6 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.compose.rally">
 
     <application
@@ -27,8 +26,8 @@
         android:theme="@style/Theme.Rally">
         <activity
             android:name=".RallyActivity"
-            android:windowSoftInputMode="adjustResize"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,17 +37,25 @@
             <!-- Support deep-linking into specific accounts -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="rally" android:host="accounts" />
+
+                <data
+                    android:host="accounts"
+                    android:scheme="rally" />
             </intent-filter>
 
             <!-- Support deep-linking into specific bills -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="rally" android:host="bills" />
+
+                <data
+                    android:host="bills"
+                    android:scheme="rally" />
             </intent-filter>
         </activity>
     </application>

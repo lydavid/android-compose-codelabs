@@ -146,6 +146,7 @@ fun RallyNavHost(
         composable(billsName) {
             BillsBody(UserData.bills, onBillClick = onBillClick)
         }
+
         composable(
             "$billsName/{name}",
             arguments = listOf(
