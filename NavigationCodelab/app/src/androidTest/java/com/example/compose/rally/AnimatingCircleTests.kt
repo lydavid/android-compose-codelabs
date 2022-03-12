@@ -31,6 +31,9 @@ import com.example.compose.rally.ui.theme.RallyTheme
 import org.junit.Rule
 import org.junit.Test
 
+// TODO: could we use this? How to record?
+//  we could save the files from emulator, then drop them into correct directory.
+//  we could also edit the old so that given a flag, it will save screenshots to our directory, overriding old ones with same name.
 /**
  * Test to showcase [AnimationClockTestRule] present in [ComposeTestRule]. It allows for animation
  * testing at specific points in time.
@@ -52,27 +55,27 @@ class AnimatingCircleTests {
     fun circleAnimation_idle_screenshot() {
         composeTestRule.mainClock.autoAdvance = true
         showAnimatedCircle()
-        assertScreenshotMatchesGolden("circle_done", composeTestRule.onRoot())
+        assertScreenshotMatchesGolden("circle_done1647045202806", composeTestRule.onRoot())
     }
 
     @Test
     fun circleAnimation_initial_screenshot() {
-        compareTimeScreenshot(0, "circle_initial")
+        compareTimeScreenshot(0, "circle_initial1647045202044")
     }
 
     @Test
     fun circleAnimation_beforeDelay_screenshot() {
-        compareTimeScreenshot(499, "circle_initial")
+        compareTimeScreenshot(499, "circle_initial1647045202044")
     }
 
     @Test
     fun circleAnimation_midAnimation_screenshot() {
-        compareTimeScreenshot(600, "circle_100")
+        compareTimeScreenshot(600, "circle_1001647045203743")
     }
 
     @Test
     fun circleAnimation_animationDone_screenshot() {
-        compareTimeScreenshot(1500, "circle_done")
+        compareTimeScreenshot(1500, "circle_done1647045202806")
     }
 
     private fun compareTimeScreenshot(timeMs: Long, goldenName: String) {
@@ -93,7 +96,9 @@ class AnimatingCircleTests {
         composeTestRule.setContent {
             RallyTheme {
                 AnimatedCircle(
-                    modifier = Modifier.background(Color.White).size(320.dp),
+                    modifier = Modifier
+                        .background(Color.White)
+                        .size(320.dp),
                     proportions = listOf(0.25f, 0.5f, 0.25f),
                     colors = listOf(Color.Red, Color.DarkGray, Color.Black)
                 )

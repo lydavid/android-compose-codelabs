@@ -86,8 +86,10 @@ fun RallyNavHost(
     modifier: Modifier = Modifier
 ) {
 
-
-
+    // https://stackoverflow.com/questions/68962458/how-are-android-activities-handled-with-jetpack-compose-and-compose-navigation
+    // The Compose application is designed to be used in a single-activity architecture with no fragments.
+    // This suggests that we only have one activity, and switch out composables for "screens".
+    // rally://accounts/Checking -> goes to rally app, accounts screen, with Checking name
     NavHost(
         navController = navController,
         startDestination = RallyScreen.Overview.name,

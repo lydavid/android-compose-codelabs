@@ -42,6 +42,14 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="rally" android:host="accounts" />
             </intent-filter>
+
+            <!-- Support deep-linking into specific bills -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="rally" android:host="bills" />
+            </intent-filter>
         </activity>
     </application>
 </manifest>
